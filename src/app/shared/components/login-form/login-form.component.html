@@ -5,17 +5,42 @@
       <div>
         <div class="form__control">
           <label for="email">Email</label>
-          <!--Use the name `email` for the form control.-->
-          <input type="text" id="email" placeholder="Input text"/>
-          <span id="emailErrorMessage" class="text-danger">Email is required.</span>
+          <!-- Added ngModel and name="email" -->
+          <input
+            type="text"
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            emailValidator
+            placeholder="Input text"
+          />
+          <span
+            id="emailErrorMessage"
+            class="text-danger"
+            *ngIf="loginForm.submitted && !email"
+            >Email is required.</span>
         </div>
+
         <div class="form__control">
           <label for="password">Password</label>
-          <!--Use the name `password` for the form control.-->
-          <input type="password" id="password" placeholder="Input text"/>
-          <span id="passwordErrorMessage" class="text-danger">Password is required.</span>
+          <!-- Added ngModel and name="password" -->
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+            placeholder="Input text"
+          />
+          <span
+            id="passwordErrorMessage"
+            class="text-danger"
+            *ngIf="loginForm.submitted && !password"
+            >Password is required.</span>
         </div>
       </div>
+
       <div>
         <div class="form__action">
           <app-button></app-button>

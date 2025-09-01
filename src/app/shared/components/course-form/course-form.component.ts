@@ -22,7 +22,7 @@ export class CourseFormComponent {
       title: ['', [Validators.required, Validators.minLength(2)]],
       description: ['', [Validators.required, Validators.minLength(2)]],
       duration: [null, [Validators.required, Validators.min(1)]],
-      author: ['', [Validators.minLength(2), Validators.pattern(/^[A-Za-z0-9 ]+$/)]],
+      author: ['', [Validators.minLength(2), Validators.pattern(/^[A-Za-z0-9 ]*$/)]],
       authors: this.fb.array([]),
     })
   }
