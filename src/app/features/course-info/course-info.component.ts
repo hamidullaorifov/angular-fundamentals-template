@@ -16,9 +16,9 @@ export class CourseInfoComponent implements OnInit {
     if (!this.course) {
       const courseId = this.route.snapshot.paramMap.get('id');
       if (courseId){
-        this.course = this.coursesService.getCourse(courseId);
-        console.log(courseId);
-        console.log(this.course);
+        this.coursesService.getCourse(courseId).subscribe(course => {
+          this.course = course;
+        });
       }
       
     }
