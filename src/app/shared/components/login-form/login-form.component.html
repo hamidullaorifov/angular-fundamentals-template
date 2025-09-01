@@ -10,15 +10,16 @@
             type="text"
             id="email"
             name="email"
-            [(ngModel)]="email"
-            required
-            emailValidator
             placeholder="Input text"
+            ngModel
+            appEmailValidator
+            required
+            #email="ngModel"
           />
           <span
-            id="emailErrorMessage"
+           id="emailErrorMessage"
             class="text-danger"
-            *ngIf="loginForm.submitted && !email"
+            *ngIf="email.invalid && (email.dirty || email.touched)"
             >Email is required.</span>
         </div>
 
