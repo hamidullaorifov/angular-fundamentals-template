@@ -12,7 +12,7 @@
             name="email"
             placeholder="Input text"
             ngModel
-            appEmailValidator
+            emailValidator
             required
             #email="ngModel"
           />
@@ -27,17 +27,18 @@
           <label for="password">Password</label>
           <!-- Added ngModel and name="password" -->
           <input
-            type="password"
+            type="text"
             id="password"
             name="password"
-            [(ngModel)]="password"
-            required
             placeholder="Input text"
+            ngModel
+            required
+            #password="ngModel"
           />
           <span
             id="passwordErrorMessage"
             class="text-danger"
-            *ngIf="loginForm.submitted && !password"
+            *ngIf="password.invalid && (password.dirty || password.touched)"
             >Password is required.</span>
         </div>
       </div>
