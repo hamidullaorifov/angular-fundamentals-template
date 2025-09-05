@@ -32,9 +32,9 @@ export class CoursesService {
     return this.http.delete<void>(`${this.apiUrl}/courses/${id}`);
   }
 
-  filterCourses(value: string): Observable<Course[]> {
+  filterCourses(searchValue: string): Observable<Course[]> {
     return this.http.get<Course[]>(
-      `${this.apiUrl}/courses/filter?title=${encodeURIComponent(value)}`
+      `${this.apiUrl}/courses/filter?title=${encodeURIComponent(searchValue)},string`
     );
   }
 
